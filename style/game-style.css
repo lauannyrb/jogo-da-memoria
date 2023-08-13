@@ -1,10 +1,37 @@
+main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(255, 145, 0);
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px 50px;
+    background-size: cover;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    padding: 30px;
+    margin: 0 0 30px;
+    border-radius: 5px;
+    background-color: rgba(255,255,255,0.8);
+    font-size: 1.2em;
+}
+
+
+
 .grid{
     display: grid;
     grid-template-columns: repeat(5,1fr);
     gap: 15px;
     width: 100%;
     max-width: 800px;
-    margin: 100px auto;
+    margin: 0 auto;
 }
 
 .card{
@@ -14,6 +41,7 @@
     position: relative;
     transition: all 400ms ease;
     transform-style: preserve-3d;
+    background-color: #ccc;
 }
 
 .face{

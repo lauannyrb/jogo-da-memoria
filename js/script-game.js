@@ -1,5 +1,9 @@
 const grid = document.querySelector(".grid");
 
+const spanPlay = document.querySelector(".players");
+
+const timer = document.querySelector(".timer");
+
 const breads = [
     'pao1',
     'pao2',
@@ -24,9 +28,10 @@ let secondCard = "";
 
 const checkEndGame = () => {
     const disabledCards = document.querySelectorAll(".disabled-card");
-
+    clearInterval(this.loop);
     if (disabledCards.length === 20) {
         alert("Você ganhou!");
+        //alert(" ${spanPlayer1.innerHTML}Você ganhou em " + timer.innerHTML + " segundos!");
     }
 }
 
@@ -65,7 +70,7 @@ const revealCard = ({ target }) => {
     } else if (secondCard === "") {
         target.parentNode.classList.add("reveal-card");
         secondCard = target.parentNode;
-
+        
         checkCards();
     } 
 
@@ -100,6 +105,24 @@ const loadGame = () => {
     });
 }
 
-loadGame();
+const startTimer = () => {
+
+this.loop = setInterval(() => {
+
+    const currentTime = +timer.innerHTML;
+    timer.innerHTML = currentTime + 1;
+
+
+} ,1000);
+}
+
+window.onload = () => {
+    const player1 = localStorage.getItem("player1");
+    const player2 = localStorage.getItem("player2");
+    spanPlay.innerHTML = player1 + " X " + player2;
+    startTimer();
+    loadGame();
+}
+
 
 
