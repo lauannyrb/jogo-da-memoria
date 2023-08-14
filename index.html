@@ -3,11 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/style.css">
-    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./style/reset-style.css"> <!-- reset css -->
+    <link rel="stylesheet" href="./style/style-login.css">
+    <script defer src="./js/script-login.js" ></script>
     <title>Jogo da memória</title>
 </head>
 <body>
+
+    <form class="login-form">
+
+        <div class="login-header">
+            <img src="imagens/brain.png" alt="brain png">
+            <h1>Jogo da memória</h1>
+        </div>
+
+        <input type="text" placeholder="jogador 1" class="login-input1">
+        <input type="text" placeholder="jogador 2" class="login-input2">
+
+        <button type="submit" class="login-button" disabled>Jogar</button>
+
+    </form>
     
 </body>
 </html>
