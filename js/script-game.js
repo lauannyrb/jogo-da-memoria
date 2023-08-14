@@ -48,7 +48,7 @@ const createCard = (bread) => {
     //atribuindo a carta a uma div com a classe back
     const back = createElement("div", "face back");
     //atribuindo a carta a uma div com a classe back e a imagem do pão
-    front.style.backgroundImage = `url(../imagens/${bread}.png)`;
+    front.style.backgroundImage = `url(./imagens/${bread}.png)`;
     //atribuindo a carta a classe front
     card.appendChild(front);
     //atribuindo a carta a classe back
