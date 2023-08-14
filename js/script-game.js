@@ -89,11 +89,11 @@ const startTimer = () => {
 const checkEndGame = () => {
     //pegando todas as cartas com a classe disabled-card e colocando em um array
     const disabledCards = document.querySelectorAll(".disabled-card");
-    //this loop é uma variavel global que vai ser usada para parar o timer
-    clearInterval(this.loop);
 
     //checando se o array disabledCards tem 20 cartas
     if (disabledCards.length === 20) {
+        //this loop é uma variavel global que vai ser usada para parar o timer
+        clearInterval(this.loop);
         //checando quem ganhou
         if (player1Score > player2Score) {
             alert(`Jogador ${player1} ganhou com ${player1Score} pontos!`);
@@ -147,9 +147,7 @@ const checkCards = () => {
         } else {
             player2Score++;
         }
-        //alterando o jogador
-        //obs
-        spanPlay.innerHTML = `${player1}: ${player1Score} X ${player2}: ${player2Score}`;
+        spanPlay.innerHTML = player1 + ":" + player1Score + " X " + player2 + ":" + player2Score + "  vez do jogador "+ currentPlayer;//mostrando o nome dos jogadores e os pontos
         //chamando a função checkEndGame
         checkEndGame();
     } else {
@@ -161,7 +159,9 @@ const checkCards = () => {
             firstCard = "";
             secondCard = "";
             //alterando o jogador
-            currentPlayer = currentPlayer === 1 ? 2 : 1;
+            currentPlayer = currentPlayer === 1 ? 2 : 1;//se o jogador atual for 1 altera para 2 se não altera para 1
+            spanPlay.innerHTML = player1 + ":" + player1Score + " X " + player2 + ":" + player2Score + "  vez do jogador "+ currentPlayer;//mostrando o nome dos jogadores e os pontos
+
         }, 1000);//tempo para esconder as cartas
     }
 }
@@ -169,7 +169,7 @@ const checkCards = () => {
 
 
 window.onload = () => {//quando a pagina carregar
-    spanPlay.innerHTML = player1 + ":" + player1Score + " X " + player2 + ":" + player2Score ;//mostrando o nome dos jogadores e os pontos
+    spanPlay.innerHTML = player1 + ":" + player1Score + " X " + player2 + ":" + player2Score + "  vez do jogador "+ currentPlayer;//mostrando o nome dos jogadores e os pontos
     startTimer();//chamando a função startTimer
     loadGame();//chamando a função loadGame
 }
@@ -181,7 +181,7 @@ playAgainButton.addEventListener("click", () => {//quando clicar no botão jogar
     timer.innerHTML = "0"; //zerando o timer
     grid.innerHTML = ""; //limpando o grid
     loadGame(); //carregando o jogo
-    spanPlay.innerHTML = `${player1}: ${player1Score} X ${player2}: ${player2Score}`; //mostrando o nome dos jogadores e os pontos
+    spanPlay.innerHTML = player1 + ":" + player1Score + " X " + player2 + ":" + player2Score + "  vez do jogador "+ currentPlayer;//mostrando o nome dos jogadores e os pontos
     clearInterval(this.loop); //parando o timer
     startTimer(); //chamando a função startTimer
     
